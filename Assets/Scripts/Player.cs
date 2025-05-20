@@ -24,6 +24,9 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        float hmoveInput = Input.GetAxis("Horizontal"); // W/S or Up/Down Arrow by default
+        transform.Translate(Vector3.forward * hmoveInput * speed * Time.deltaTime);
+
 
 
         float moveInput = Input.GetAxis("Vertical"); // W/S or Up/Down Arrow by default
@@ -33,14 +36,14 @@ public class Player : MonoBehaviour
         {
             Debug.Log("A");
 
-            anim.SetTrigger("Forward");
+            anim.SetTrigger("DoubleJump");
 
         }
         if (Input.GetKeyDown(KeyCode.V))
         {
             Debug.Log("V");
 
-            anim.SetTrigger("Backward");
+            anim.SetTrigger("AirSpin");
 
         }
       
