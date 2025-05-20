@@ -28,11 +28,7 @@ public class Player : MonoBehaviour
 
         float moveInput = Input.GetAxis("Vertical"); // W/S or Up/Down Arrow by default
         transform.Translate(Vector3.forward * moveInput * speed * Time.deltaTime);
-        if (Input.GetKeyDown(KeyCode.Space) && isGrounded)
-        {
-            rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
-            isGrounded = false;
-        }
+       
         if (Input.GetKeyDown(KeyCode.A))
         {
             Debug.Log("A");
