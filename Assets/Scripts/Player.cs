@@ -3,8 +3,8 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     public Animator anim;
-    public float JumpForce = 5f;
-    public float MoveSpeed = 5;
+    public float jumpForce = 5f;
+    public float moveSpeed = 5;
     public float speed = 5f;
     public float bounceForce = 10f;
 
@@ -44,26 +44,39 @@ public class Player : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Space) && isGrounded)
         {
-            rb.AddForce(Vector3.up * JumpForce, ForceMode.Impulse);
+            rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
             isGrounded = false;
         }
 
-        // Movement based on arrow keys
+        // Get input for horizontal movement
+        float horizontalInput = 0;
         if (Input.GetKey(KeyCode.LeftArrow))
         {
-            transform.Translate(Vector3.back * MoveSpeed * Time.deltaTime);
+            horizontalInput -= 1;
         }
         if (Input.GetKey(KeyCode.RightArrow))
         {
-            transform.Translate(Vector3.forward * MoveSpeed * Time.deltaTime);
+            horizontalInput += 1;
         }
+
+        // Get input for vertical movement
+        float verticalInput = 0;
         if (Input.GetKey(KeyCode.UpArrow))
         {
-            transform.Translate(Vector3.forward * MoveSpeed * Time.deltaTime);
+            verticalInput += 1;
         }
         if (Input.GetKey(KeyCode.DownArrow))
         {
-            transform.Translate(Vector3.back * MoveSpeed * Time.deltaTime);
+            verticalInput -= 1;
         }
+
+        // Calculate the movement vector
+        Vector3 movement = new Vector3(horizontalInput, 0, verticalInput);
+
+        // Normalize the vector to ensure consistent movement speed
+        movement.Normalize();
+
+        // Move the object
+        transform.Translate(movement * moveSpeed * Time.deltaTime);
     }
 }
