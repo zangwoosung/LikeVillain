@@ -1,6 +1,19 @@
 <ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
-    <ui:VisualElement style="flex-grow: 1;" />
-    <ui:ProgressBar value="22" title="my-progress" name="HPBar" />
-    <ui:VisualElement style="flex-grow: 1;" />
-    <ui:VisualElement style="flex-grow: 1;" />
+    <ui:VisualElement name="Main" style="flex-grow: 1;">
+        <ui:ProgressBar value="22" title="my-progress" name="HPBar" />
+        <ui:Label text="Label" name="JumpForce" />
+        <ui:Label text="Label" name="Speed" />
+        <ui:Label text="Label" name="Time" />
+        <ui:Label text="Label" name="ETC" />
+    </ui:VisualElement>
+    <ui:VisualElement name="Clear" style="flex-grow: 1; display: flex;">
+        <ui:Label text="Clear" style="-unity-text-align: upper-center;" />
+        <ui:Button text="Button" name="NextButton" />
+        <ui:Button text="Button" name="QuitButton" />
+    </ui:VisualElement>
+    <ui:VisualElement name="GameOver" style="flex-grow: 1;">
+        <ui:Label text="Label" style="-unity-text-align: upper-center;" />
+        <ui:Button text="Button" />
+        <ui:Button text="Button" />
+    </ui:VisualElement>
 </ui:UXML>
