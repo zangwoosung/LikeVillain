@@ -49,15 +49,48 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -7511558181221131132, guid: c65503a6e4718fd40b8b76519b077614, type: 3}
-      propertyPath: m_Materials.Array.data[0]
+      propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: 0651f690e12c99e4ca849109f77be742, type: 2}
     - target: {fileID: 919132149155446097, guid: c65503a6e4718fd40b8b76519b077614, type: 3}
       propertyPath: m_Name
-      value: Collectable_Coin_01
+      value: Collectible_Coin_01
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: c65503a6e4718fd40b8b76519b077614, type: 3}
+      propertyPath: m_TagString
+      value: Collectable
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: c65503a6e4718fd40b8b76519b077614, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 4645225930892994839}
   m_SourcePrefab: {fileID: 100100000, guid: c65503a6e4718fd40b8b76519b077614, type: 3}
+--- !u!1 &8632659638613168267 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: c65503a6e4718fd40b8b76519b077614, type: 3}
+  m_PrefabInstance: {fileID: 8866523227341385178}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &4645225930892994839
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8632659638613168267}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.796981, y: 0.784873, z: 0.16712296}
+  m_Center: {x: -0.0000014901161, y: 0, z: -0.000000011175871}

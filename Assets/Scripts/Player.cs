@@ -2,25 +2,26 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
+
+    [SerializeField] Transform m_PlayerTransform;
+    public PlayerData playerData;
     public Animator anim;
-    public float JumpForce = 5f;
-    public float MoveSpeed = 5;
-    public float speed = 5f;
+
     public float bounceForce = 10f;
 
     private Rigidbody rb;
     private bool isGrounded;
     Quaternion originalRotation;
-    
+
     void Start()
     {
         rb = GetComponent<Rigidbody>();
-    } 
-  
-    
+    }
+
+
     void StandUp()
     {
-        transform.rotation= originalRotation;
+        transform.rotation = originalRotation;
     }
     void OnCollisionEnter(Collision collision)
     {
@@ -28,42 +29,45 @@ public class Player : MonoBehaviour
         {
             Vector3 collisionNormal = collision.contacts[0].normal;
             rb.AddForce(collisionNormal * bounceForce, ForceMode.Impulse);
-            Invoke("StandUp", 2);           
+            Invoke("StandUp", 2);
         }
         if (collision.gameObject.CompareTag("Ground"))
         {
             isGrounded = true;
         }
-    }    
+    }
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.K))
         {
             anim.SetTrigger("AirSpine");
+            playerData.HP = 10;
         }
 
         if (Input.GetKeyDown(KeyCode.Space) && isGrounded)
         {
-            rb.AddForce(Vector3.up * JumpForce, ForceMode.Impulse);
+            rb.AddForce(Vector3.up * playerData.JumpForce, ForceMode.Impulse);
             isGrounded = false;
         }
 
-        // Movement based on arrow keys
+        float moveSpeed = 5;// playerData.MoveSpeed;
         if (Input.GetKey(KeyCode.LeftArrow))
         {
-            transform.Translate(Vector3.back * MoveSpeed * Time.deltaTime);
+            m_PlayerTransform.Translate(Vector3.left * moveSpeed * Time.deltaTime);
         }
         if (Input.GetKey(KeyCode.RightArrow))
         {
-            transform.Translate(Vector3.forward * MoveSpeed * Time.deltaTime);
+            m_PlayerTransform.Translate(Vector3.right * moveSpeed * Time.deltaTime);
         }
         if (Input.GetKey(KeyCode.UpArrow))
         {
-            transform.Translate(Vector3.forward * MoveSpeed * Time.deltaTime);
+            m_PlayerTransform.Translate(Vector3.forward * moveSpeed * Time.deltaTime);
         }
         if (Input.GetKey(KeyCode.DownArrow))
         {
-            transform.Translate(Vector3.back * MoveSpeed * Time.deltaTime);
+            m_PlayerTransform.Translate(Vector3.back * moveSpeed * Time.deltaTime);
         }
+
+
     }
 }

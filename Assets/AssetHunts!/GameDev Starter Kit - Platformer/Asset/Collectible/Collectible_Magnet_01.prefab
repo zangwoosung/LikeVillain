@@ -49,15 +49,48 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -7511558181221131132, guid: 037a3efc9cf27504799d51d2df81a587, type: 3}
-      propertyPath: m_Materials.Array.data[0]
+      propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: 0651f690e12c99e4ca849109f77be742, type: 2}
     - target: {fileID: 919132149155446097, guid: 037a3efc9cf27504799d51d2df81a587, type: 3}
       propertyPath: m_Name
-      value: Collectable_Magnet_01
+      value: Collectible_Magnet_01
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 037a3efc9cf27504799d51d2df81a587, type: 3}
+      propertyPath: m_TagString
+      value: Collectable
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 037a3efc9cf27504799d51d2df81a587, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 3613155691904936524}
   m_SourcePrefab: {fileID: 100100000, guid: 037a3efc9cf27504799d51d2df81a587, type: 3}
+--- !u!1 &883564895853380108 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 037a3efc9cf27504799d51d2df81a587, type: 3}
+  m_PrefabInstance: {fileID: 36702001154080605}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &3613155691904936524
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 883564895853380108}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.55614233, y: 0.7202277, z: 0.17727746}
+  m_Center: {x: 0, y: 0.06445436, z: 0.000000014901161}
