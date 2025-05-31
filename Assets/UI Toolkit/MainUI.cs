@@ -1,16 +1,20 @@
+using System;
 using UnityEngine;
 using UnityEngine.UIElements;
-using static UnityEngine.Rendering.DebugUI.MessageBox;
 public class MainUI : MonoBehaviour
 {
+
+    public static event Action OnGameExitEvent;
+    public static event Action OnGameQuitEvent;
+    public static event Action OnGameAgainEvent;
+    public static event Action OnGameNextEvent;
+
     [SerializeField] UIDocument myUI;
-    
-    Button myButton;
+       
     VisualElement root;
     VisualElement clearPage;
     VisualElement gameOverPage;
-    Label JumpForce;
-    Label Speed;
+    
 
     Button nextBtn;
     Button quitBtn;
@@ -18,45 +22,64 @@ public class MainUI : MonoBehaviour
     Button againBtn;
     Button exitBtn;
 
-
-    private void Start()
+    private void Awake()
     {
         root = myUI.rootVisualElement;
+
         clearPage = root.Q<VisualElement>("Clear");
         nextBtn = clearPage.Q<Button>("NextBtn");
-        quitBtn = clearPage.Q<Button>("QuitBtn");
-
-        nextBtn.clicked += OnMyButtonClick;
-        quitBtn.clicked += OnMyButtonClick;
+        exitBtn = clearPage.Q<Button>("ExitBtn");      
 
         gameOverPage = root.Q<VisualElement>("GameOver");
         againBtn = gameOverPage.Q<Button>("AgainBtn");
-        exitBtn = gameOverPage.Q<Button>("ExitBtn");
+        quitBtn = gameOverPage.Q<Button>("QuitBtn");       
 
-        clearPage.style.display = DisplayStyle.None;
-        gameOverPage.style.display = DisplayStyle.None;
+        clearPage.visible = false;
+        gameOverPage.visible = false;
 
     }
-    void OnEnableTemp()
+    private void Start()
     {
-        // Get the UIDocument component attached to the same GameObject
-        // var uiDocument = myUI GetComponent<UIDocument>();
+        GameManager.OnGameOverEvent += GameManager_OnGameOverEvent;
+        GameManager.OnStageClearEvent += GameManager_OnStageClearEvent;
 
-        // Get the root VisualElement
-        VisualElement root = myUI.rootVisualElement;
+        nextBtn.clicked += OnNextButtonClick;
+        exitBtn.clicked += OnExitButtonClick;
 
-        // Query the Button by name
-        myButton = root.Q<Button>("topButton");
+        againBtn.clicked += OnAgainButtonClick;
+        quitBtn.clicked += OnQuitButtonClick;
 
-        // Register a callback
-        if (myButton != null)
-        {
-            myButton.clicked += OnMyButtonClick;
-        }
     }
 
-    private void OnMyButtonClick()
+    private void OnExitButtonClick()
     {
-        Debug.Log("Button clicked!");
+        OnGameExitEvent?.Invoke();
     }
+
+    private void OnNextButtonClick()
+    {        
+        OnGameNextEvent?.Invoke();
+    }
+
+    private void OnQuitButtonClick()
+    {
+        OnGameExitEvent?.Invoke();
+    }
+
+    private void OnAgainButtonClick()
+    {
+        OnGameAgainEvent?.Invoke();
+    }   
+
+    private void GameManager_OnStageClearEvent()
+    {
+        clearPage.visible = true;
+    }
+
+    private void GameManager_OnGameOverEvent()
+    {
+        gameOverPage.visible = true;
+    }
+
+    
 }
