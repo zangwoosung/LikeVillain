@@ -1,7 +1,9 @@
+using System;
 using UnityEngine;
 
 public class Player : MonoBehaviour
 {
+    public static event Action<Vector3> OnHitTrapEvent;
 
     [SerializeField] Transform m_PlayerTransform;
     public PlayerData playerData;
@@ -22,6 +24,11 @@ public class Player : MonoBehaviour
     void StandUp()
     {
         transform.rotation = originalRotation;
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        OnHitTrapEvent?.Invoke(other.transform.position);
     }
     void OnCollisionEnter(Collision collision)
     {
