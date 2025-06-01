@@ -1,4 +1,5 @@
 using System;
+using UnityEditor.SceneManagement;
 using UnityEngine;
 using UnityEngine.UIElements;
 public class MainUI : MonoBehaviour
@@ -12,6 +13,7 @@ public class MainUI : MonoBehaviour
     [SerializeField] UIDocument myUI;
        
     VisualElement root;
+    VisualElement mainPage;
     VisualElement clearPage;
     VisualElement gameOverPage;
     
@@ -26,6 +28,7 @@ public class MainUI : MonoBehaviour
     {
         root = myUI.rootVisualElement;
 
+        mainPage = root.Q<VisualElement>("Main");
         clearPage = root.Q<VisualElement>("Clear");
         nextBtn = clearPage.Q<Button>("NextBtn");
         exitBtn = clearPage.Q<Button>("ExitBtn");      
@@ -36,7 +39,7 @@ public class MainUI : MonoBehaviour
 
         clearPage.visible = false;
         gameOverPage.visible = false;
-
+        mainPage.visible = true;
     }
     private void Start()
     {

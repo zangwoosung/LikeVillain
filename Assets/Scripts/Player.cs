@@ -33,6 +33,7 @@ public class Player : MonoBehaviour
         }
         if (collision.gameObject.CompareTag("Ground"))
         {
+            Invoke("StandUp", 2);
             isGrounded = true;
         }
     }
@@ -41,7 +42,7 @@ public class Player : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.K))
         {
             anim.SetTrigger("AirSpine");
-            playerData.HP = 10;
+            playerData.HP -= 10;
         }
 
         if (Input.GetKeyDown(KeyCode.Space) && isGrounded)
@@ -50,22 +51,22 @@ public class Player : MonoBehaviour
             isGrounded = false;
         }
 
-        float moveSpeed = 5;// playerData.MoveSpeed;
+      
         if (Input.GetKey(KeyCode.LeftArrow))
         {
-            m_PlayerTransform.Translate(Vector3.left * moveSpeed * Time.deltaTime);
+            m_PlayerTransform.Translate(Vector3.left * playerData.MoveSpeed * Time.deltaTime);
         }
         if (Input.GetKey(KeyCode.RightArrow))
         {
-            m_PlayerTransform.Translate(Vector3.right * moveSpeed * Time.deltaTime);
+            m_PlayerTransform.Translate(Vector3.right * playerData.MoveSpeed * Time.deltaTime);
         }
         if (Input.GetKey(KeyCode.UpArrow))
         {
-            m_PlayerTransform.Translate(Vector3.forward * moveSpeed * Time.deltaTime);
+            m_PlayerTransform.Translate(Vector3.forward * playerData.MoveSpeed * Time.deltaTime);
         }
         if (Input.GetKey(KeyCode.DownArrow))
         {
-            m_PlayerTransform.Translate(Vector3.back * moveSpeed * Time.deltaTime);
+            m_PlayerTransform.Translate(Vector3.back * playerData.MoveSpeed * Time.deltaTime);
         }
 
 
