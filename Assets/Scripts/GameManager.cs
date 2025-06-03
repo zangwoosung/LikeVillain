@@ -45,7 +45,8 @@ public class GameManager : MonoBehaviour
 
     private void MainUI_OnGameAgainEvent()
     {
-        
+        Debug.Log("Game again.");
+        Debug.Log("Game again.");
     }
 
     private void MainUI_OnGameQuitEvent()

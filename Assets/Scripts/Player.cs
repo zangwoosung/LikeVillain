@@ -10,23 +10,24 @@ public class Player : MonoBehaviour
 
     public float bounceForce = 10f;
 
-    private Rigidbody rb;
+    [SerializeField] Rigidbody rb;
     private bool isGrounded;
     Quaternion originalRotation;
     Vector3 originalPosition;
 
     void Start()
     {
-        originalPosition = transform.position;
-        originalRotation = transform.rotation;
+        MainUI.OnGameAgainEvent += OnGameAgain;
+        originalPosition = m_Player.transform.position;
+        originalRotation = m_Player.transform.rotation;
 
-        rb = GetComponent<Rigidbody>();
+        rb = m_Player.GetComponent<Rigidbody>();
     }
 
-    public void Restore()
+    public void OnGameAgain()
     {
-        transform.position= originalPosition;
-        transform.rotation= originalRotation;
+        m_Player.transform.position = originalPosition;
+        m_Player.transform.rotation = originalRotation;
 
     }
 
@@ -65,7 +66,7 @@ public class Player : MonoBehaviour
         if (Input.GetKey(KeyCode.Z))
         {
             m_Player.transform.eulerAngles = new Vector3(0, -90, 0);
-            
+
         }
         if (Input.GetKey(KeyCode.Y))
         {
@@ -77,15 +78,11 @@ public class Player : MonoBehaviour
 
         if (Input.GetKey(KeyCode.LeftArrow))
         {
-          
+
             m_PlayerContainer.Translate(Vector3.left * playerData.MoveSpeed * Time.deltaTime);
         }
         if (Input.GetKey(KeyCode.RightArrow))
         {
-            //m_Player.transform.eulerAngles = new Vector3(0, 180, 0);
-            //Quaternion q = m_Player.rotation;
-            //q.y = -90;
-            //m_Player.rotation = q;
             m_PlayerContainer.Translate(Vector3.right * playerData.MoveSpeed * Time.deltaTime);
         }
         if (Input.GetKey(KeyCode.UpArrow))
