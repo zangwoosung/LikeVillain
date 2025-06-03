@@ -37,11 +37,9 @@ public class MainUI : MonoBehaviour
         againBtn = gameOverPage.Q<Button>("AgainBtn");
         quitBtn = gameOverPage.Q<Button>("QuitBtn");       
 
-        clearPage.visible = false;
-        gameOverPage.visible = false;
-        mainPage.visible = true;
-
         playerData.OnGameOverEvent += GameManager_OnGameOverEvent;
+        
+
     }
 
    
@@ -51,11 +49,16 @@ public class MainUI : MonoBehaviour
         GameManager.OnGameOverEvent += GameManager_OnGameOverEvent;
         GameManager.OnStageClearEvent += GameManager_OnStageClearEvent;
 
+        FinishLine.OnStageClearEvent += GameManager_OnStageClearEvent;
         nextBtn.clicked += OnNextButtonClick;
         exitBtn.clicked += OnExitButtonClick;
 
         againBtn.clicked += OnAgainButtonClick;
         quitBtn.clicked += OnQuitButtonClick;
+
+        clearPage.visible = false;
+        gameOverPage.visible = false;
+        mainPage.visible = true;
 
     }
 
@@ -84,6 +87,7 @@ public class MainUI : MonoBehaviour
     private void GameManager_OnStageClearEvent()
     {
         clearPage.visible = true;
+        gameOverPage.visible = false;
     }
 
     private void GameManager_OnGameOverEvent()
