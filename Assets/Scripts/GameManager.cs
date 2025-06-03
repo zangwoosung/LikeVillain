@@ -6,14 +6,36 @@ public class GameManager : MonoBehaviour
     public static event Action OnGameOverEvent;
     public static event Action OnStageClearEvent;
 
+    [SerializeField] PlayerData playerData;
     
     void Start()
     {
-        MainUI.OnGameExitEvent += MainUI_OnGameExitEvent; ;
-        MainUI.OnGameQuitEvent += MainUI_OnGameQuitEvent; ;
-        MainUI.OnGameAgainEvent += MainUI_OnGameAgainEvent; ;
-        MainUI.OnGameNextEvent += MainUI_OnGameNextEvent; ;
+        playerData.HP = 100;
+        playerData.Life = 5;
+        playerData.MoveSpeed = 5;
+        playerData.JumpForce = 5;
+        playerData.OnGameOverEvent += PlayerData_OnGameOverEvent;
 
+        MainUI.OnGameExitEvent += MainUI_OnGameExitEvent; 
+        MainUI.OnGameQuitEvent += MainUI_OnGameQuitEvent; 
+        MainUI.OnGameAgainEvent += MainUI_OnGameAgainEvent; 
+        MainUI.OnGameNextEvent += MainUI_OnGameNextEvent; 
+
+
+
+    }
+
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.F))
+        {
+            playerData.Life = 0;
+        }
+    }
+    private void PlayerData_OnGameOverEvent()
+    {
+        Debug.Log("GameManager.");
     }
 
     private void MainUI_OnGameNextEvent()
