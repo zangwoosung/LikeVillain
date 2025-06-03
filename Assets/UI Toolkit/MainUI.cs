@@ -76,6 +76,8 @@ public class MainUI : MonoBehaviour
 
     private void OnAgainButtonClick()
     {
+        clearPage.visible = false;
+        gameOverPage.visible = false;
         OnGameAgainEvent?.Invoke();
     }   
 
