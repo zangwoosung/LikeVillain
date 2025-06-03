@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UIElements;
 public class MainUI : MonoBehaviour
 {
-
+    [SerializeField] PlayerData playerData;
     public static event Action OnGameExitEvent;
     public static event Action OnGameQuitEvent;
     public static event Action OnGameAgainEvent;
@@ -40,7 +40,12 @@ public class MainUI : MonoBehaviour
         clearPage.visible = false;
         gameOverPage.visible = false;
         mainPage.visible = true;
+
+        playerData.OnGameOverEvent += GameManager_OnGameOverEvent;
     }
+
+   
+
     private void Start()
     {
         GameManager.OnGameOverEvent += GameManager_OnGameOverEvent;
