@@ -13,7 +13,7 @@ public enum AudioType
 public class SoundManager : MonoBehaviour
 {
     public Dictionary<AudioType, AudioClip> playList;
-    [SerializeField] AudioSource audio;
+    [SerializeField] AudioSource myAudio;
     [SerializeField] AudioClip hit;
     [SerializeField] AudioClip over;
     [SerializeField] AudioClip clear;
@@ -24,6 +24,7 @@ public class SoundManager : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        BaseItem.OnHitEvent += BaseItem_OnHitEvent;
         playList = new Dictionary<AudioType, AudioClip>();
         playList.Add(AudioType.Hit, hit);
         playList.Add(AudioType.Over, over);
@@ -33,9 +34,24 @@ public class SoundManager : MonoBehaviour
         playList.Add(AudioType.Run, run);
     }
 
+    private void BaseItem_OnHitEvent(AudioType obj)
+    {
+        AudioClip clip = playList[obj];
+        myAudio.clip = clip;
+        myAudio.Play();
+
+        AudioSource.PlayClipAtPoint(clip, transform.position);
+
+        
+        
+    }
+
     public void PlayOneList(AudioType myType)
     {
         AudioClip clip = playList[myType];
+        myAudio.clip = clip; 
+        myAudio.Play();
+
         AudioSource.PlayClipAtPoint(clip, transform.position);
     }
     void Update()
