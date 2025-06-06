@@ -1,15 +1,14 @@
 ﻿using UnityEngine;
 
-public class MovementObstruction : MonoBehaviour
+public class MovementObstruction : Mine
 {
-    [SerializeField] int damage = 2;
-    [SerializeField] PlayerData playerData;
-    private void OnTriggerEnter(Collider other)
+    public  override void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
         {
-            playerData.JumpForce -= damage;
-            playerData.MoveSpeed -= damage;
+            base.OnTriggerEnter(other);
+            playerData.JumpForce -= 2.0f;
+            playerData.MoveSpeed -= 2.0f; 
         }
     }
 
