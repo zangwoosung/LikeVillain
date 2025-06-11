@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class BaseItem : MonoBehaviour
 {
+    //test change
     public static event Action<AudioType> OnHitEvent;
     public AudioType myType;
     int damage = 10;
