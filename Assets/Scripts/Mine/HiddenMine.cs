@@ -1,29 +1,25 @@
 ﻿using UnityEngine;
-public class HiddenMine : MonoBehaviour
+public class HiddenMine : Mine
 {
     [SerializeField] Renderer outsideRenderer;
-    [SerializeField] int damage = 10;
-    [SerializeField] PlayerData playerData;
+    
     private void Start()
     {
         outsideRenderer.enabled = false;
     }
-    private void OnTriggerEnter(Collider other)
+    public override void OnTriggerEnter(Collider other)
     {
-
         if (other.CompareTag("Player"))
         {
             outsideRenderer.enabled = true;
-            playerData.HP -= damage;
+            base.OnTriggerEnter(other);
         }
     }
     private void OnTriggerExit(Collider other)
     {
-
         if (other.CompareTag("Player"))
         {
-            outsideRenderer.enabled = false;
-            playerData.HP -= damage;
+            outsideRenderer.enabled = false;            
         }
     }
 }

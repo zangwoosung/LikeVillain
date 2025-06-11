@@ -1,13 +1,14 @@
 ﻿using System;
 using UnityEngine;
 
-public class FinishLine : MonoBehaviour
+public class FinishLine : Mine
 {
     public static event Action OnStageClearEvent;
-    private void OnTriggerEnter(Collider other)
+    public override void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
         {
+            base.OnTriggerEnter(other);
             OnStageClearEvent?.Invoke();
         }
     }
