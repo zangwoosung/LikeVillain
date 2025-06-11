@@ -54,7 +54,13 @@ public class Player : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.K))
         {
-            anim.SetTrigger("AirSpine");
+            anim.SetBool("Run", false);
+            //anim.SetTrigger("AirSpine");
+            playerData.HP -= 10;
+        }
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            anim.SetBool("Run", true);
             playerData.HP -= 10;
         }
 
@@ -78,19 +84,23 @@ public class Player : MonoBehaviour
 
         if (Input.GetKey(KeyCode.LeftArrow))
         {
-
+            transform.rotation = Quaternion.Euler(0, -90, 0);
             m_PlayerContainer.Translate(Vector3.left * playerData.MoveSpeed * Time.deltaTime);
         }
         if (Input.GetKey(KeyCode.RightArrow))
         {
+            transform.rotation = Quaternion.Euler(0, 90, 0);
+         
             m_PlayerContainer.Translate(Vector3.right * playerData.MoveSpeed * Time.deltaTime);
         }
         if (Input.GetKey(KeyCode.UpArrow))
         {
+            transform.rotation = Quaternion.Euler(0, 0, 0);
             m_PlayerContainer.Translate(Vector3.forward * playerData.MoveSpeed * Time.deltaTime);
         }
         if (Input.GetKey(KeyCode.DownArrow))
         {
+            transform.rotation = Quaternion.Euler(0, 180, 0);
             m_PlayerContainer.Translate(Vector3.back * playerData.MoveSpeed * Time.deltaTime);
         }
 
