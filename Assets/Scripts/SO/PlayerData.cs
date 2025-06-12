@@ -30,8 +30,8 @@ public class PlayerData : ScriptableObject
         }
     }   
 
+    [field:SerializeField]
     private int life;
-
     public int Life
     {
         get { return life; }

@@ -39,7 +39,7 @@ public class GameManager : MonoBehaviour
     }
     private void PlayerData_OnGameOverEvent()
     {
-        Debug.Log("GameManager.");
+        Debug.Log("GameManager. Game over");
     }
 
     private void MainUI_OnGameNextEvent()

@@ -2749,8 +2749,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75db47ea4948ccf47878b74b1727c158, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 10
   playerData: {fileID: 11400000, guid: 18d12704638d2f445bbc3d06855e5e26, type: 2}
+  myType: 0
+  damate: 0
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
@@ -3684,8 +3685,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75db47ea4948ccf47878b74b1727c158, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 10
   playerData: {fileID: 11400000, guid: 18d12704638d2f445bbc3d06855e5e26, type: 2}
+  myType: 0
+  damate: 0
 --- !u!65 &899226615
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3948,8 +3950,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75db47ea4948ccf47878b74b1727c158, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 10
   playerData: {fileID: 11400000, guid: 18d12704638d2f445bbc3d06855e5e26, type: 2}
+  myType: 0
+  damate: 0
 --- !u!1001 &943968037
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5973,8 +5976,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75db47ea4948ccf47878b74b1727c158, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 10
   playerData: {fileID: 11400000, guid: 18d12704638d2f445bbc3d06855e5e26, type: 2}
+  myType: 0
+  damate: 0
 --- !u!1001 &1361166042
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7491,8 +7495,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75db47ea4948ccf47878b74b1727c158, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 10
   playerData: {fileID: 11400000, guid: 18d12704638d2f445bbc3d06855e5e26, type: 2}
+  myType: 0
+  damate: 0
 --- !u!1001 &1618558949
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8486,8 +8491,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75db47ea4948ccf47878b74b1727c158, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 10
   playerData: {fileID: 11400000, guid: 18d12704638d2f445bbc3d06855e5e26, type: 2}
+  myType: 0
+  damate: 0
 --- !u!1 &1807625473
 GameObject:
   m_ObjectHideFlags: 0
@@ -9363,8 +9369,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75db47ea4948ccf47878b74b1727c158, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 10
   playerData: {fileID: 11400000, guid: 18d12704638d2f445bbc3d06855e5e26, type: 2}
+  myType: 0
+  damate: 0
 --- !u!1001 &1930613209
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9813,7 +9820,10 @@ MonoBehaviour:
   - {fileID: 1888295503}
   - {fileID: 1326086093}
   _parent: {fileID: 1157072982}
+  _3DTiles: {fileID: 39603280}
   _collectable: []
+  startPoint: {fileID: 846197594}
+  endPoint: {fileID: 2120182664}
 --- !u!1001 &2018405107
 PrefabInstance:
   m_ObjectHideFlags: 0
