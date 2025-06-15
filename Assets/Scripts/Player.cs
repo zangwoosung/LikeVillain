@@ -17,6 +17,8 @@ public class Player : MonoBehaviour
 
     void Start()
     {
+        this.enabled = true;
+        playerData.OnGameOverEvent += PlayerData_OnGameOverEvent;
         MainUI.OnGameAgainEvent += OnGameAgain;
         originalPosition = m_Player.transform.position;
         originalRotation = m_Player.transform.rotation;
@@ -24,10 +26,17 @@ public class Player : MonoBehaviour
         rb = m_Player.GetComponent<Rigidbody>();
     }
 
+    private void PlayerData_OnGameOverEvent()
+    {
+        Debug.Log("game over in player");
+        this.enabled = false;
+    }
+
     public void OnGameAgain()
     {
         m_Player.transform.position = originalPosition;
         m_Player.transform.rotation = originalRotation;
+        this.enabled = true;
 
     }
 
@@ -51,37 +60,12 @@ public class Player : MonoBehaviour
     }
     void Update()
     {
-
-        if (Input.GetKeyDown(KeyCode.K))
-        {
-            anim.SetBool("Run", false);
-            //anim.SetTrigger("AirSpine");
-            playerData.HP -= 10;
-        }
-        if (Input.GetKeyDown(KeyCode.R))
-        {
-            anim.SetBool("Run", true);
-            playerData.HP -= 10;
-        }
-
         if (Input.GetKeyDown(KeyCode.Space) && isGrounded)
         {
             rb.AddForce(Vector3.up * playerData.JumpForce, ForceMode.Impulse);
             isGrounded = false;
         }
-        if (Input.GetKey(KeyCode.Z))
-        {
-            m_Player.transform.eulerAngles = new Vector3(0, -90, 0);
-
-        }
-        if (Input.GetKey(KeyCode.Y))
-        {
-            m_Player.transform.eulerAngles = new Vector3(0, 90, 0);
-
-        }
-
-
-
+       
         if (Input.GetKey(KeyCode.LeftArrow))
         {
             transform.rotation = Quaternion.Euler(0, -90, 0);

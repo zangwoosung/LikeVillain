@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UIElements;
 public class MainUI : MonoBehaviour
 {
-    [SerializeField] PlayerData playerData;
+    [SerializeField] PlayerData playerDataSO;
     public static event Action OnGameExitEvent;
     public static event Action OnGameQuitEvent;
     public static event Action OnGameAgainEvent;
@@ -37,7 +37,7 @@ public class MainUI : MonoBehaviour
         againBtn = gameOverPage.Q<Button>("AgainBtn");
         quitBtn = gameOverPage.Q<Button>("QuitBtn");       
 
-        playerData.OnGameOverEvent += GameManager_OnGameOverEvent;
+        playerDataSO.OnGameOverEvent += GameManager_OnGameOverEvent;
         
 
     }
@@ -46,8 +46,8 @@ public class MainUI : MonoBehaviour
 
     private void Start()
     {
-        GameManager.OnGameOverEvent += GameManager_OnGameOverEvent;
-        GameManager.OnStageClearEvent += GameManager_OnStageClearEvent;
+        //GameManager.OnGameOverEvent += GameManager_OnGameOverEvent;
+        //GameManager.OnStageClearEvent += GameManager_OnStageClearEvent;
 
         FinishLine.OnStageClearEvent += GameManager_OnStageClearEvent;
         nextBtn.clicked += OnNextButtonClick;
@@ -92,6 +92,7 @@ public class MainUI : MonoBehaviour
 
     private void GameManager_OnGameOverEvent()
     {
+
         gameOverPage.visible = true;
     }
 

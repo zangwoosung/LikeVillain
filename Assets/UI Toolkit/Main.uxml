@@ -6,18 +6,22 @@
                     <ui:DataBinding property="value" data-source-path="HP" binding-mode="ToTarget" />
                 </Bindings>
             </ui:ProgressBar>
-            <ui:Label text="Label" name="JumpForce">
+            <ui:Label text="Label" name="JumpForce" data-source="project://database/Assets/Scripts/SO/PlayerData%201.asset?fileID=11400000&amp;guid=dc7bfc6bee7db11428c02e7c284a3fcc&amp;type=2#PlayerData 1">
                 <Bindings>
                     <ui:DataBinding property="text" data-source-path="JumpForce" binding-mode="ToTarget" />
                 </Bindings>
             </ui:Label>
-            <ui:Label text="Label" name="Speed" style="background-color: rgba(169, 229, 87, 0.57);">
+            <ui:Label text="Label" name="Speed" data-source="project://database/Assets/Scripts/SO/PlayerData%201.asset?fileID=11400000&amp;guid=dc7bfc6bee7db11428c02e7c284a3fcc&amp;type=2#PlayerData 1" style="background-color: rgba(169, 229, 87, 0.57);">
                 <Bindings>
                     <ui:DataBinding property="text" data-source-path="MoveSpeed" binding-mode="ToTarget" />
                 </Bindings>
             </ui:Label>
             <ui:Label text="Label" name="Time" />
-            <ui:Label text="Label" name="ETC" />
+            <ui:Label text="Label" name="ETC" data-source="project://database/Assets/Scripts/SO/PlayerData%201.asset?fileID=11400000&amp;guid=dc7bfc6bee7db11428c02e7c284a3fcc&amp;type=2#PlayerData 1">
+                <Bindings>
+                    <ui:DataBinding property="text" data-source-path="life" binding-mode="ToTarget" />
+                </Bindings>
+            </ui:Label>
         </ui:VisualElement>
         <ui:VisualElement name="Clear" style="flex-grow: 1; display: flex; flex-shrink: 1; visibility: visible; overflow: visible;">
             <ui:Label text="Clear" style="-unity-text-align: upper-center;" />

@@ -4,59 +4,46 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "PlayerData", menuName = "Scriptable Objects/PlayerData")]
 public class PlayerData : ScriptableObject
 {
-    public  event Action OnGameOverEvent;
+    public event Action OnGameOverEvent;
+    public float JumpForce = 5f;
+    public float MoveSpeed = 5;
+    public float bounceForce = 10f;
 
-    EventBinding<PlayerEvent> playerEventBinding;
-    private int hp;
-
-    private void OnEnable()
-    {
-        playerEventBinding = new EventBinding<PlayerEvent>(PlayerEventHandler);
-        EventBus<PlayerEvent>.Register(playerEventBinding);
-    }
-
-    private void PlayerEventHandler(PlayerEvent @event)
-    {
-        Debug.Log("@event");  
-        Debug.Log(@event);  
-    }
-
+    private int hp;        
     public int HP
     {
         get { return hp; }
-        set { hp = value;
-        
-
+        set
+        {
+            hp = value;
         }
-    }   
+    }
 
-    [field:SerializeField]
+    [field: SerializeField]
     private int life;
     public int Life
     {
         get { return life; }
-        set { life = value;
-            OnGameOverEvent?.Invoke();
-            Debug.Log("in PlayerData");
-            if (life == 0)
+        set
+        {
+            Debug.Log("Life " + life);
+            life = value;
+            if (life <= 0)
             {
-                EventBus<PlayerEvent>.Raise(new PlayerEvent
-                {
-                    health = 100,
-                    mana = 100
-                });
-
-                EventBus<TestEvent>.Raise(new TestEvent { });
-
+                Debug.Log("game over ");
                 OnGameOverEvent?.Invoke();
             }
         }
     }
+    public void ResetData()
+    {
+        Debug.Log("reset data");
+        Life = 5;
+        JumpForce = 5f;
+        MoveSpeed = 5;
+        bounceForce = 10f;
 
-    public float JumpForce = 5f;
-    public float MoveSpeed = 5; 
-    public float bounceForce = 10f;
-
+    }
     public void CalculateHP()
     {
         if (HP <= 0 && Life > 0)

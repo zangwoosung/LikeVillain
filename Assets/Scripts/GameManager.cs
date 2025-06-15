@@ -11,7 +11,7 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         playerData.HP = 100;
-      //  playerData.Life = 5;
+        playerData.Life = 5;
         playerData.MoveSpeed = 5;
         playerData.JumpForce = 5;
         playerData.OnGameOverEvent += PlayerData_OnGameOverEvent;
@@ -49,13 +49,13 @@ public class GameManager : MonoBehaviour
 
     private void MainUI_OnGameAgainEvent()
     {
-        Debug.Log("Game again.");
-        Debug.Log("Game again.");
+        Debug.Log("again.");
+        playerData.ResetData();
     }
 
     private void MainUI_OnGameQuitEvent()
     {
-        
+        Debug.Log("quit");
     }
 
     private void MainUI_OnGameExitEvent()

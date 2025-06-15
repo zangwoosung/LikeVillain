@@ -14,9 +14,7 @@ public class MineManager : MonoBehaviour
     void Start()
     {
         _3DTiles.transform.Clear();
-        _parent.transform.Clear();
-        //CreateMines();
-        //SetupTile();
+        _parent.transform.Clear();      
         SetupTile();
     }
 
@@ -61,21 +59,7 @@ public class MineManager : MonoBehaviour
         }
     }
 
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.F))
-        {
-            RemoveMines();
-            CreateMines();
-
-        }
-        if (Input.GetKeyDown(KeyCode.G))
-        {
-            RemoveMines();
-            CreateMines();
-
-        }
-    }
+   
     public void RemoveMines()
     {
         _parent.transform.Clear();

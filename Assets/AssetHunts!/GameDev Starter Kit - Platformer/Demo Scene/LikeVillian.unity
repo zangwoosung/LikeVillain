@@ -682,7 +682,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 701eb92403beca64ab64439c560271fa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerData: {fileID: 11400000, guid: 18d12704638d2f445bbc3d06855e5e26, type: 2}
+  playerDataSO: {fileID: 11400000, guid: dc7bfc6bee7db11428c02e7c284a3fcc, type: 2}
   myUI: {fileID: 1383156189}
 --- !u!1001 &124671388
 PrefabInstance:
@@ -1837,7 +1837,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9389a244de8853b4b941c3dc22f25a14, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerData: {fileID: 11400000, guid: 18d12704638d2f445bbc3d06855e5e26, type: 2}
+  playerData: {fileID: 11400000, guid: dc7bfc6bee7db11428c02e7c284a3fcc, type: 2}
 --- !u!1001 &405504934
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1912,6 +1912,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 641007721}
     m_Modifications:
+    - target: {fileID: 4195750476098643763, guid: 2dfbb63c9cdf7504faf4ff26b0581598, type: 3}
+      propertyPath: playerData
+      value: 
+      objectReference: {fileID: 11400000, guid: dc7bfc6bee7db11428c02e7c284a3fcc, type: 2}
     - target: {fileID: 4195750476098643763, guid: 2dfbb63c9cdf7504faf4ff26b0581598, type: 3}
       propertyPath: m_PlayerContainer
       value: 
@@ -6551,8 +6555,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1429109581}
+  - component: {fileID: 1429109582}
   m_Layer: 0
-  m_Name: EffecManager
+  m_Name: VFXManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6573,6 +6578,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 447740888}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1429109582
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1429109580}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ddf8f273c61abd3418f04cfc5323336a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  psPrefab: {fileID: 6146545414153545492, guid: 61753401622c2a947a30e2147430e97d, type: 3}
 --- !u!1001 &1432277917
 PrefabInstance:
   m_ObjectHideFlags: 0

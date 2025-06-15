@@ -84,8 +84,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3fd50ba03577f3b429e753394ecc6f6d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 1
-  playerData: {fileID: 11400000, guid: 18d12704638d2f445bbc3d06855e5e26, type: 2}
+  playerData: {fileID: 11400000, guid: dc7bfc6bee7db11428c02e7c284a3fcc, type: 2}
+  myType: 0
+  damate: 0
 --- !u!65 &8935387070359297742
 BoxCollider:
   m_ObjectHideFlags: 0

@@ -9,6 +9,7 @@ public class MovementObstruction : Mine
             base.OnTriggerEnter(other);
             playerData.JumpForce -= 2.0f;
             playerData.MoveSpeed -= 2.0f; 
+
         }
     }
 
