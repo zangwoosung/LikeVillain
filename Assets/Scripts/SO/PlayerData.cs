@@ -5,8 +5,11 @@ using UnityEngine;
 public class PlayerData : ScriptableObject
 {
     public event Action OnGameOverEvent;
+    [Range(0f, 5f)]
     public float JumpForce = 5f;
+    [Range(0f, 5f)]
     public float MoveSpeed = 5;
+    [Range(0f, 10f)]
     public float bounceForce = 10f;
 
     private int hp;        

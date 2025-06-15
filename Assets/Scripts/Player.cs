@@ -1,4 +1,5 @@
 using UnityEngine;
+using static UnityEditor.Experimental.GraphView.GraphView;
 
 public class Player : MonoBehaviour
 {
@@ -28,16 +29,24 @@ public class Player : MonoBehaviour
 
     private void PlayerData_OnGameOverEvent()
     {
+        anim.SetTrigger("Die");        
         Debug.Log("game over in player");
         this.enabled = false;
+        Invoke("StopAnim", 5);
+       
+    }
+    void StopAnim()
+    {
+        anim.enabled = false;
     }
 
     public void OnGameAgain()
     {
         m_Player.transform.position = originalPosition;
-        m_Player.transform.rotation = originalRotation;
+        transform.rotation = originalRotation;
         this.enabled = true;
-
+        anim.enabled = true;
+        transform.rotation = originalRotation;
     }
 
     void StandUp()

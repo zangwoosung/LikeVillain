@@ -10,10 +10,8 @@ public class GameManager : MonoBehaviour
     
     void Start()
     {
-        playerData.HP = 100;
-        playerData.Life = 5;
-        playerData.MoveSpeed = 5;
-        playerData.JumpForce = 5;
+        playerData.ResetData();
+
         playerData.OnGameOverEvent += PlayerData_OnGameOverEvent;
 
         MainUI.OnGameExitEvent += MainUI_OnGameExitEvent; 
@@ -24,6 +22,7 @@ public class GameManager : MonoBehaviour
         FinishLine.OnStageClearEvent += FinishLine_OnStageClearEvent;
 
     }
+   
 
     private void FinishLine_OnStageClearEvent()
     {
