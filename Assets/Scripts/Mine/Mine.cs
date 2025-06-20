@@ -17,8 +17,6 @@ public class BaseMine:MonoBehaviour
     }
 }
 
-
-
 public class Mine : BaseMine
 {
     public override  void OnTriggerEnter(Collider other)

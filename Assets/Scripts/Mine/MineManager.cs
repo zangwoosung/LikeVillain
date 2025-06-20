@@ -1,5 +1,4 @@
 using UnityEngine;
-
 public class MineManager : MonoBehaviour
 {
     [SerializeField] GameObject[] _mines;
